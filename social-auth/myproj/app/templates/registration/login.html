@@ -1,0 +1,130 @@
+{% extends 'app/base.html' %}
+
+{% block main_content %}
+
+
+<div>
+    
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#signinTab" aria-controls="signupTab" role="tab" data-toggle="tab">Sign In</a>
+        </li>
+        <li role="presentation">
+            <a href="#signupTab" aria-controls="signupTab" role="tab" data-toggle="tab">Sign Up</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="container tab-content">
+        
+        <div role="tabpanel" class="tab-pane active" id="signinTab">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h3>Sign in with your social account</h3>
+                    <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}"class="btn btn-block btn-social btn-google">
+                        <span class="fa fa-google"></span> Sign in with Google
+                    </a>
+                    <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}" class="btn btn-block btn-social btn-facebook">
+                        <span class="fa fa-facebook"></span> Sign in with Facebook
+                    </a>
+                    <a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}" class="btn btn-block btn-social btn-twitter">
+                        <span class="fa fa-twitter"></span> Sign in with Twitter
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <form method="post" action="{% url 'auth:login' %}">
+                        {% csrf_token %}
+                        <h3>Sign in with existing user</h3>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">Username</span>
+                            <input type="text" name="username" class="form-control" placeholder="mysuperuser" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">P4ssw0r6!</span>
+                            <input type="password" name="password" class="form-control" placeholder="love123" aria-describedby="basic-addon1">
+                        </div>
+                        <input type="submit" class="btn btn-default" aria-haspopup="true" aria-expanded="false" value="Sign In" />
+                    </form>
+                    {% if form.errors %}
+                        <p>Oops, something wrong is not right. Better luck next time :)</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            
+        </div> <!-- /signinTab -->
+        
+        <div role="tabpanel" class="tab-pane" id="signupTab">
+            <form method="POST" action="{% url 'createuser' %}">
+                {% csrf_token %}
+                Create New User
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Username</span>
+                    <input type="text" name="username" class="form-control" placeholder="mysuperuser" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">E-Mail</span>
+                    <input type="email" name="email" class="form-control" placeholder="myself@mydomain.me" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">P4ssw0r6!</span>
+                    <input type="password" name="password" class="form-control" placeholder="love123" aria-describedby="basic-addon1">
+                </div>
+                <button type="submit" class="btn btn-default" aria-haspopup="true" aria-expanded="false">Sign Up</button>
+            </form>
+        </div> <!-- /signupTab -->
+        
+    </div><!-- /Tab panes -->
+    
+    
+    
+</div>
+
+<!--
+    <div>
+        <h1>Python Social Auth Sample</h1>
+
+        <ul>
+            {% if user and not user.is_anonymous %}
+                <li>
+                    <a>Hello {{ user.get_full_name|default:user.username }}!</a>
+                </li>
+                <li>
+                    <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a>
+                </li>
+                <li>
+                    <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google</a>
+                </li>
+                <li>
+                    <a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}">Login with Twitter</a>
+                </li>
+                <li>
+                    <form>
+                        {% csrf_token %}
+                        {{ frmUser.as_p }}
+                        <button>Create</button>
+                    </form>
+                </li>
+                <li>
+                    <form method="post" action="/login/">
+                        {% csrf_token %}
+                        <label for="txtUsername">
+                            <input type="text" />
+                        </label>
+                        <label for="txtPassword">
+                            <input type="password" />
+                        </label>
+                        <button>Login</button>
+                    </form>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+-->
+        
+{% endblock %}

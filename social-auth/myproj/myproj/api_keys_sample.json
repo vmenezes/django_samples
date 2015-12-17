@@ -1,0 +1,14 @@
+{
+    "facebook": {
+        "app_id": "MY_APP_ID",
+        "app_secret": "MY_APP_SECRET"
+    },
+    "twitter": {
+        "consumer_key": "MY_CONSUMER_KEY",
+        "consumer_secret": "MY_CONSUMER_SECRET"
+    },
+    "google": {
+        "client_id": "MY_CLIENT_ID",
+        "client_secret": "MY_CLIENT_SECRET"
+    }
+}
