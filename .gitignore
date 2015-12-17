@@ -1,6 +1,8 @@
 social-auth/myproj/db.sqlite3
 social-auth/myproj/myproj/api_keys.json
 
+crispy-forms/myproj/db.sqlite3
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

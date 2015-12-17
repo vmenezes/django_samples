@@ -1,0 +1,17 @@
+{% extends 'notes/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block main_content %}
+
+<div class="container">
+    <h2>Default Django Form</h2>
+    {{ form.as_p }}
+</div>
+
+<div class="container">
+    <h2>Crispy Form</h2>
+    {{ form|crispy }}
+</div>
+
+{% endblock %}
