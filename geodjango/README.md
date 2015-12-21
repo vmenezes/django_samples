@@ -87,8 +87,10 @@ DATABASES = {
 - Now before going any further, lets check if our project is working. Check the IP address of the virtual machine with `ifconfig` as you are going to need it to access the Django project that will run on it, not on the computer localhost.
 - python manage.py migrate
 - python manage.py runserver 0.0.0.0:8000
+- Open your web brownser and go to http://IP_YOU_SAW_ON_IFCONFIG:8000 to access your django project.
+```
 
-
+```
 
 
 Is there anything wrong or could anything be done better?
