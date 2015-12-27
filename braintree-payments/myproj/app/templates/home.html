@@ -1,0 +1,21 @@
+{% block main_content %}
+    <form id="checkout" method="post" action="/checkout/">
+      {% csrf_token %}
+      <div id="payment-form"></div>
+      <input type="number" name="amount" id="amount" placeholder="11.99" "required"/>
+      <input type="submit" value="Pay!">
+    </form>
+
+    <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+    <script>
+    // We generated a client token for you so you can test out this code
+    // immediately. In a production-ready integration, you will need to
+    // generate a client token on your server (see section below).
+    var clientToken = "{{ client_token }}";
+
+    braintree.setup(clientToken, "dropin", {
+      container: "payment-form"
+    });
+    </script>
+
+{% endblock %}
