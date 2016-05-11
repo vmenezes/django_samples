@@ -9,6 +9,9 @@ social-auth/myproj/myproj/api_keys.json
 
 crispy-forms/myproj/db.sqlite3
 
+async-sample/env27/
+async-sample/env34/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
