@@ -60,7 +60,6 @@ try:
             try:
                 data = future.result()
             except Exception as exc:
-                # resp_err = resp_err + 1
                 print(exc)
             else:
                 print(data.url, data)
